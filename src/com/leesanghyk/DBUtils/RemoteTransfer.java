@@ -95,4 +95,21 @@ public class RemoteTransfer {
             }
         }
     }
+
+    public static void insertStory(String sql){
+        Connection connection=DBConnection.getConnection();
+        PreparedStatement preparedStatement=null;
+        try {
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

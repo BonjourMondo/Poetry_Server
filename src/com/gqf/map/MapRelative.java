@@ -36,7 +36,7 @@ public class MapRelative {
     }
 
     @RequestMapping(value = "/validation",method = RequestMethod.POST, produces = "application/json; charset=utf-8")
-    public @ResponseBod
+    public @ResponseBody
     String validation(@RequestBody String account) {
         String sql = "select * from user where username =" + "\""+account+"\"";
         return MySqlOP.select(sql, "id","username", "password").toString();
